@@ -1,0 +1,11 @@
+[ {
+  "id" : 1,
+  "name" : "Cuaderno",
+  "price" : 5000.0,
+  "description" : "100 hojas cuadriculado",
+  "category" : "papeleria",
+  "stock" : 30,
+  "imageUrl" : "https://cdn1.totalcommerce.cloud/normaco/product-image/es/cuaderno-argollado-tapa-dura-grande-multimaterias-7m-cuadriculado-academico-azul-rey-1.webp",
+  "createdAt" : "2024-10-18T14:08:04.092603188",
+  "updatedAt" : "2024-10-18T14:08:25.171036923"
+} ]
