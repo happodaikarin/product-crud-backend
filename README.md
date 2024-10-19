@@ -1,4 +1,3 @@
-cat > README.md <<EOL
 # Product CRUD Backend
 
 Este es el backend de un proyecto CRUD para la gestión de productos, construido con Spring Boot. Este servicio permite crear, leer, actualizar y eliminar productos en una base de datos MySQL.
