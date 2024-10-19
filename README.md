@@ -10,20 +10,6 @@ Este es el backend de un proyecto CRUD para la gestión de productos, construido
 - [Docker](https://www.docker.com/get-started)
 - MySQL Server (si no se usa el servicio embebido)
 
-## Estructura del Proyecto
-
-\`\`\`
-product-crud-backend/
-├── src/                     # Código fuente del proyecto
-│   ├── main/
-│   │   ├── java/com/example/backend/   # Clases de la aplicación
-│   │   └── resources/               # Archivos de recursos
-│   └── test/                    # Pruebas del proyecto
-├── Dockerfile                 # Dockerfile para construir la imagen del contenedor
-├── pom.xml                   # Archivo de configuración de Maven
-└── README.md                  # Documentación del proyecto
-\`\`\`
-
 ## Instalación
 
 1. **Clonar el repositorio:**
