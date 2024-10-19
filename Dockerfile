@@ -23,6 +23,9 @@ WORKDIR /app
 # Copiar el archivo .jar generado en la fase anterior al contenedor
 COPY --from=build /app/target/backend-0.0.1-SNAPSHOT.jar app.jar
 
+# Copiar el archivo products.json en el contenedor
+COPY src/main/resources/data/products.json /app/src/main/resources/data/products.json
+
 # Exponer el puerto de la aplicación (ajusta al puerto que usa tu aplicación Spring Boot)
 EXPOSE 8080
 
