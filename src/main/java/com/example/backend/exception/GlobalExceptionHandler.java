@@ -14,7 +14,6 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Clase interna para las respuestas de error
     @Data
     @AllArgsConstructor
     private static class ErrorResponse {
@@ -23,7 +22,6 @@ public class GlobalExceptionHandler {
         private Map<String, String> errors;
     }
 
-    // Manejar excepciones de validación
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationExceptions(
             MethodArgumentNotValidException ex) {
@@ -37,7 +35,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
-    // Manejar todas las demás excepciones
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleAllExceptions(Exception ex) {
         ErrorResponse response = new ErrorResponse(false, "Error interno del servidor", null);

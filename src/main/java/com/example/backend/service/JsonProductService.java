@@ -28,7 +28,6 @@ public class JsonProductService implements ProductService {
 
     @PostConstruct
     public void init() {
-        // Configurar ObjectMapper para manejar LocalDateTime
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
@@ -50,14 +49,12 @@ public class JsonProductService implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-        // Asignar un ID único
         Long newId = products.stream()
                 .map(Product::getId)
                 .max(Long::compareTo)
                 .orElse(0L) + 1;
         product.setId(newId);
 
-        // Establecer createdAt y updatedAt
         LocalDateTime now = LocalDateTime.now();
         product.setCreatedAt(now);
         product.setUpdatedAt(now);
@@ -90,8 +87,6 @@ public class JsonProductService implements ProductService {
             existingProduct.setCategory(updatedProduct.getCategory());
             existingProduct.setStock(updatedProduct.getStock());
             existingProduct.setImageUrl(updatedProduct.getImageUrl());
-
-            // Actualizar updatedAt
             existingProduct.setUpdatedAt(LocalDateTime.now());
 
             saveToFile();

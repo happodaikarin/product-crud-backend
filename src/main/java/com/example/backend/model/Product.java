@@ -45,7 +45,6 @@ public class Product {
 
     private LocalDateTime updatedAt;
 
-    // Métodos para establecer las fechas de creación y actualización
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();

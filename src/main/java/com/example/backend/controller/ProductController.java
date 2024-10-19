@@ -18,8 +18,6 @@ import java.util.Optional;
 public class ProductController {
 
     private final ProductService productService;
-
-    // Clase interna para las respuestas de la API
     @Data
     @AllArgsConstructor
     private static class ApiResponse {
@@ -28,7 +26,6 @@ public class ProductController {
         private Object data;
     }
 
-    // Crear un nuevo producto
     @PostMapping
     public ResponseEntity<ApiResponse> createProduct(@Valid @RequestBody Product product) {
         try {
@@ -41,14 +38,12 @@ public class ProductController {
         }
     }
 
-    // Obtener todos los productos
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
 
-    // Obtener un producto por ID
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getProductById(@PathVariable Long id) {
         Optional<Product> productOpt = productService.getProductById(id);
@@ -61,7 +56,6 @@ public class ProductController {
         }
     }
 
-    // Actualizar un producto existente
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse> updateProduct(@PathVariable Long id, @Valid @RequestBody Product productDetails) {
         Optional<Product> updatedProductOpt = productService.updateProduct(id, productDetails);
@@ -74,7 +68,6 @@ public class ProductController {
         }
     }
 
-    // Eliminar un producto
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deleteProduct(@PathVariable Long id) {
         boolean isDeleted = productService.deleteProduct(id);
@@ -87,7 +80,6 @@ public class ProductController {
         }
     }
 
-    // Obtener productos por categoría
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category) {
         List<Product> products = productService.getAllProducts().stream()
